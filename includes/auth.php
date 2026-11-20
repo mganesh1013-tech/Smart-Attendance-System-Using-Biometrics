@@ -1,0 +1,18 @@
+<?php
+if (session_status() === PHP_SESSION_NONE) session_start();
+function require_login() {
+    if (empty($_SESSION["user_id"])) {
+        header("Location: login.php");
+        exit;
+    }
+}
+function require_role($roles) {
+    require_login();
+    $roles = (array)$roles;
+    if (!in_array($_SESSION["role"] ?? "", $roles, true)) {
+        http_response_code(403);
+        die("Access denied.");
+    }
+}
+function h($v) { return htmlspecialchars((string)$v, ENT_QUOTES, "UTF-8"); }
+?>

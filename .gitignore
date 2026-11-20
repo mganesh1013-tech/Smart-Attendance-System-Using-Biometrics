@@ -1,0 +1,21 @@
+# Private email credentials
+config/email.php
+
+# Local database configuration
+config/database.php
+
+# Dependencies
+vendor/
+
+# Local environment files
+.env
+.env.*
+
+# Keep installer files private
+install.php
+install.example.php
+
+# Keep original ESP32 configuration private
+hardware/esp32_attendance_example.ino
+
+config/generate_hash.php
